@@ -1,0 +1,27 @@
+name: Hasura CI/CD
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Hasura CI/CD
+        uses: GavinRay97/hasura-ci-cd-action@v1.3
+        with:
+          PATH_TO_HASURA_PROJECT_ROOT: ./hasura
+          HASURA_CLI_VERSION: v1.3.1-beta.1
+          HASURA_ENDPOINT: https://legible-barnacle-78.hasura.app
+          HASURA_ADMIN_SECRET: d0Zpe8id2izTtXaKFDZQUt4hrNrh3mqv0Q05lv5G5esT7ybgvqLQgIUmUviMs3EE
+          # If you want to disable either migrations or regression tests, make sure to remove them completely
+          # The script only checks for their presence, not their value
+          HASURA_MIGRATIONS_ENABLED: true
+          HASURA_SEEDS_ENABLED: true
+          HASURA_REGRESSION_TESTS_ENABLED: false
+          HASURA_REGRESSION_TESTSUITE_ID: xxxxxx-xxx-xxxx-xxxxx-xxxxxx
+          HASURA_PERSONAL_ACCESS_TOKEN: ${{ secrets.HASURA_PERSONAL_ACCESS_TOKEN }}
+          HASURA_PROJECT_ID: 168000c9-d667-4124-9184-cac7084a65bf
