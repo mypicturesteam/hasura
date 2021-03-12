@@ -1,7 +1,6 @@
 app:
   build:
-    image: bala
-    context: bala
-    dockerfile: Dockerfile
+    image: bartolina/bala
+    dockerfile_path: Dockerfile
     args:
       build_env: production
