@@ -1,4 +1,7 @@
-codeship:
+app:
   build:
-    image: codeship_example
+    image: codeship/app
+    context: app
     dockerfile: Dockerfile
+    args:
+      build_env: production
