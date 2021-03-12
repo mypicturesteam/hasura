@@ -1,7 +1,7 @@
 app:
   build:
-    image: codeship/app
-    context: app
+    image: bala
+    context: bala
     dockerfile: Dockerfile
     args:
       build_env: production
